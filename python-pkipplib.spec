@@ -12,35 +12,40 @@ Source0:	http://www.pykota.com/software/pkipplib/download/tarballs/%{module}-%{v
 URL:		http://www.pykota.com/software/pkipplib/
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-pkipplib is a Python library which can prepare IPP requests
-with the help of a somewhat high level API. These requests
-can then be sent to an IPP printer or print server (e.g. CUPS).
-This library can also parse IPP answers received, and create
-high level Python objects from them.
-Both of these actions can be done through an IPPRequest class
-and its instance methods.
-Finally, a CUPS class can be leveraged to easily deal with
-CUPS print servers.
+pkipplib is a Python library which can prepare IPP requests with the
+help of a somewhat high level API. These requests can then be sent to
+an IPP printer or print server (e.g. CUPS). This library can also
+parse IPP answers received, and create high level Python objects from
+them. Both of these actions can be done through an IPPRequest class
+and its instance methods. Finally, a CUPS class can be leveraged to
+easily deal with CUPS print servers.
 
 %description -l pl.UTF-8
-pkpgcounter jest biblioteką umożliwiającą przygotowywanie zleceń IPP,
-jak również parsowania odpowiedzi IPP i tworzenie na ich podstaiw
-obiektów pythona.
+pkipplib jest biblioteką umożliwiającą przygotowywanie zleceń IPP za
+pomocą API nieco wyższego poziomu. Żądania te mogą być wysyłane do
+drukarki IPP lub serwera wydruków (np. CUPS-a). Biblioteka potrafi
+także analizować odebrane odpowiedzi IPP i tworzyć z nich
+wysokopoziomowe obiekty Pythona. Oba te zadania można wykonywać
+poprzez klasę IPPRequest i metody jej instancji. Ponadto można
+wykorzystywać klasę CUPS do łatwej współpracy z serwerami wydruków
+CUPS.
 
 %prep
 %setup -q -n %{module}-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
+%{__python} setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
