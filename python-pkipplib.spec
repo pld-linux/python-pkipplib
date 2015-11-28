@@ -4,7 +4,7 @@ Summary:	Module for preparing IPP requests
 Summary(pl.UTF-8):	Moduł do przygotowywania zleceń IPP
 Name:		python-%{module}
 Version:	0.07
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://www.pykota.com/software/pkipplib/download/tarballs/%{module}-%{version}.tar.gz
