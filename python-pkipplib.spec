@@ -10,6 +10,7 @@ Group:		Development/Languages/Python
 Source0:	http://www.pykota.com/software/pkipplib/download/tarballs/%{module}-%{version}.tar.gz
 # Source0-md5:	6e59a148f6ebf7c4344a7a2f1c2aea3c
 URL:		http://www.pykota.com/software/pkipplib/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python >= 1:2.5
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
